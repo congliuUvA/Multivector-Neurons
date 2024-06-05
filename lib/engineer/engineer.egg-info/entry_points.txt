@@ -1,0 +1,3 @@
+[console_scripts]
+sweep = engineer.sweep.sweep:main
+sweep_local = engineer.sweep.sweep_local:main

@@ -1,0 +1,33 @@
+name: denoise
+project: icml-clifford
+entity: badboyz2000
+program: nbody.py
+method: grid
+
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - --dtype=float32
+  - --trainer.module=engineer.trainer.Trainer
+  - --trainer.val_check_interval=128
+  - --trainer.max_steps=131072
+  - --trainer.train_metrics=[loss]
+  - --trainer.test_metrics=[loss]
+  - --trainer.gradclip=adaptive
+  # Dataset
+  - --dataset.module=data.nbody.NBody
+  - --dataset.batch_size=100
+  # Optimizer
+  - --optimizer.module=torch.optim.Adam
+  - --optimizer.foreach=False
+  - --optimizer.lr=5e-4
+  - --optimizer.weight_decay=1e-12
+  # EGNN
+  - --model.module=models.nbody_egnn.Nbody_EGNN
+
+  - ${args}
+  
+parameters:
+  seed:
+    values: [0, 1, 2]

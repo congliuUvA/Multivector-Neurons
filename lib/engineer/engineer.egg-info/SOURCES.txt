@@ -1,0 +1,14 @@
+setup.py
+engineer/__init__.py
+engineer/callbacks.py
+engineer/checkpointer.py
+engineer/fire.py
+engineer/gradient_clip.py
+engineer/loggers.py
+engineer/metrics.py
+engineer/tee.py
+engineer.egg-info/PKG-INFO
+engineer.egg-info/SOURCES.txt
+engineer.egg-info/dependency_links.txt
+engineer.egg-info/entry_points.txt
+engineer.egg-info/top_level.txt

@@ -1,0 +1,8 @@
+# datasets
+*.pkl
+datasets/
+*__pycache__/
+
+# python cache
+*.pyc
+

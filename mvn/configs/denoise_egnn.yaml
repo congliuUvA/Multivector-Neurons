@@ -1,0 +1,33 @@
+name: denoise
+project: icml-clifford
+entity: badboyz2000
+program: denoise.py
+method: grid
+
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - --dtype=float64
+  - --trainer.module=engineer.trainer.Trainer
+  - --trainer.val_check_interval=1000
+  - --trainer.max_steps=200_000
+  - --trainer.train_metrics=[loss]
+  - --trainer.test_metrics=[loss]
+  - --trainer.gradclip=adaptive
+  # Dataset
+  - --dataset.module=data.scn.SidechainNet
+  - --dataset.batch_size=16
+  # Optimizer
+  - --optimizer.module=torch.optim.Adam
+  - --optimizer.foreach=False
+  # EGNN
+  - --model.module=models.egnn.EGNN
+  - --model.num_tokens=21
+  - --model.num_nearest_neighbors=16
+
+  - ${args}
+
+parameters:
+  seed:
+    values: [0]

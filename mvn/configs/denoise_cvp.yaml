@@ -1,0 +1,40 @@
+name: denoise
+project: icml-clifford
+entity: badboyz2000
+program: denoise.py
+method: grid
+
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - --dtype=float64
+  - --trainer.module=engineer.trainer.Trainer
+  - --trainer.val_check_interval=1000
+  - --trainer.max_steps=200_000
+  - --trainer.train_metrics=[loss]
+  - --trainer.test_metrics=[loss]
+  - --trainer.gradclip=adaptive
+
+  # Dataset
+  - --dataset.module=data.scn.SidechainNet
+  - --dataset.batch_size=16
+  # Optimizer
+  - --optimizer.module=torch.optim.Adam
+  - --optimizer.foreach=False
+  # EGNN
+  - --model.module=models.cvp.CVP
+  - --model.num_tokens=21
+  - --model.num_nearest_neighbors=16
+
+  - ${args}
+
+cluster: # Comment for local run.
+  address: snellius
+  slurm: --partition=gpu --time=14:00:00 --gpus-per-node=1
+  directory: '{project_dir}/mvn'
+  command: WANDB_ENABLED=TRUE wandb agent --count=1 {entity}/{project}/{sweep_id}
+
+parameters:
+  seed:
+    values: [0]

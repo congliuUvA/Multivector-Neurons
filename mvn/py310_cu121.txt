@@ -1,0 +1,9 @@
+conda create -n mvn
+conda activate mvn
+conda install python=3.10
+pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu121
+pip install torch_geometric
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.2.0+cu121.html
+pip install pyyaml wandb
+conda install -c conda-forge openmm=8.1.1
+pip install sidechainnet
