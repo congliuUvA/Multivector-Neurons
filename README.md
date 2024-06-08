@@ -58,3 +58,17 @@ This implementation uses conda environment, change the path of `miniconda/` in `
 * CVP: ```sweep_local configs/denoise_cvp.yaml```
 * Clifford_EGNN: ```sweep_local configs/denoise_clifford_egnn.yaml```
 * EGNN: ```sweep_local configs/denoise_egnn.yaml```
+
+## Citation:
+If you found this code useful, please cite our paper:
+
+```
+@misc{liu2024multivector,
+      title={Multivector Neurons: Better and Faster O(n)-Equivariant Clifford Graph Neural Networks}, 
+      author={Cong Liu and David Ruhe and Patrick Forré},
+      year={2024},
+      eprint={2406.04052},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
