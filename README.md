@@ -1,5 +1,4 @@
-# Multivector Neurons: Better and Faster O(n)-Equivariant Clifford GNNs
-Authors: Cong Liu, David Ruhe, Patric Forré
+# [Multivector Neurons: Better and Faster O(n)-Equivariant Clifford GNNs](https://arxiv.org/abs/2406.04052) 
 
 ## Abstract
 Recent works have focused on designing deep learning models that are equivariant to the O(n) or SO(n) groups. These models either consider only scalar information such as distances and angles or have a very high computational complexity. In this work, we test a few novel message passing graph neural networks (GNNs) based on Clifford multivectors, structured similarly to prevalent equivariant models in geometric deep learning. Our approach leverages efficient invariant scalar features while simultaneously performing expressive learning on multivector representations, particularly through the use of the equivariant geometric product operator. By integrating these elements, our methods outperform established efficient baseline models on an N-Body simulation task and protein denoising task while maintaining a high efficiency. In particular, we push the state-of-the-art error on the N-body dataset to 0.0035 (averaged over 3 runs); an 8% improvement over recent methods.
